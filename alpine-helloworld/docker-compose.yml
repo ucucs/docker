@@ -1,0 +1,13 @@
+version:  '3'
+services:
+  helloworld:
+    build:
+      dockerfile: Dockerfile
+      context: .      
+    image:  alpine-helloworld
+    container_name: ucucs_helloworld
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
