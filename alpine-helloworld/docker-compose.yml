@@ -4,7 +4,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: .      
-    image:  alpine-helloworld
+    image:  ucucs/alpine-helloworld
     container_name: ucucs_helloworld
     logging:
       driver: "json-file"
