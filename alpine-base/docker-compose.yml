@@ -1,0 +1,13 @@
+version:  '3'
+services:
+  alpinebase:
+    build:
+      dockerfile: Dockerfile
+      context: .      
+    image:  ucucs/alpine-base
+    container_name: ucucs_alpine_base
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
