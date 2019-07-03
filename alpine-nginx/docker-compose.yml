@@ -1,0 +1,26 @@
+version:  '3'
+services:
+  alpinenginx:
+    build:
+      dockerfile: Dockerfile
+      context: .      
+    image:  ucucs/alpine-nginx
+    container_name: ucucs_alpine_nginx
+    #volumes:
+       #- /var/cache/nginx:/var/cache/nginx
+       #- /data/nginx/certs:/etc/nginx/certs
+       #- /data/nginx/html:/etc/nginx/html
+       #- /data/nginx/conf.d:/etc/nginx/conf.d
+       #- /var/log/nginx:/var/log/nginx
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    ports:
+       - 80:80
+    healthcheck:
+       test: ["CMD", "curl", "-fs", "http://localhost/ngx_status"]
+       interval: 5s
+       timeout: 3s
+       retries: 3
